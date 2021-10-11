@@ -162,7 +162,7 @@ class Student():
             pic.write(self.photo)
         send_mail(
             
-            subject='Admission accepted',
+            subject=f'Admission for {self.name} accepted',
             attachment='pass.png',
             receiver_email=to,
             sender_email=from_,
@@ -170,4 +170,27 @@ class Student():
             body=self.message
         )
         
-
+    def send_reject_mail(self, from_, to, password):
+        
+        self.school = 'KV AFS Begumpet'
+        self.message = f"""\n
+        Hello {str(self.parents).replace('[','').replace(']', '')}
+        
+        We are sorry to inform you that your child ({self.name})
+        has been rejected from the following school:
+            {self.school}
+        
+        regards
+        - Admission-bot
+        """
+        with open('pass.png', 'wb+') as pic:
+            pic.write(self.photo)
+        send_mail(
+            
+            subject=f'Admission for {self.name} rejected',
+            attachment='pass.png',
+            receiver_email=to,
+            sender_email=from_,
+            password=password,
+            body=self.message
+        )

@@ -4,6 +4,7 @@ from email import encoders
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from termcolor import cprint
 import os
 
 
@@ -112,8 +113,8 @@ class Student():
         self.parents = parent_name
         self.blood = blood_group
         self.parent_phone = parent_phone_number
-        print(f'Student initialization completed.\nThe details are:\n\nname: {self.name}\nage:\
- {self.age}\nsex: {self.sex}\nnickname: {self.nickname}\nemail: {self.email}\n\nThere are some more details. use getinfo() method for the full list')
+        cprint(f'Student initialization completed.\nThe details are:\n\nname: {self.name}\nage:\
+ {self.age}\nsex: {self.sex}\nnickname: {self.nickname}\nemail: {self.email}\n\nThere are some more details. use getinfo() method for the full list', color='cyan')
 
     def getinfo(self) -> dict:
         """Use this function to get all the information returned in a dictionary

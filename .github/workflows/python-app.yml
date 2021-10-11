@@ -8,6 +8,10 @@ on:
     branches: [ Master ]
   pull_request:
     branches: [ Master ]
+  fork:
+  
+  workflow_run:
+    
 
 jobs:
   build:
@@ -28,6 +32,3 @@ jobs:
     - name: Lint with flake8
       run: |
         flake8 . --exit-zero
-    - name: Test with pytest
-      run: |
-        pytest .

@@ -8,9 +8,6 @@ on:
     branches: [ Master ]
   pull_request:
     branches: [ Master ]
-  fork:
-  
-  workflow_run:
     
 
 jobs:

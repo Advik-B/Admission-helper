@@ -1,9 +1,9 @@
 import smtplib, ssl
-
 from email import encoders
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import os
 
 def send_mail(subject, sender_email, receiver_email, password, body, attachment=None):
 
@@ -36,7 +36,7 @@ def send_mail(subject, sender_email, receiver_email, password, body, attachment=
         f"attachment; filename= {filename}",
     )
 
-# Add attachment to message and convert message to string
+    # Add attachment to message and convert message to string
     message.attach(part)
         
     text = message.as_string()
@@ -169,6 +169,7 @@ class Student():
             password=password,
             body=self.message
         )
+        os.remove('student.png')
         
     def send_reject_mail(self, from_, to, password):
         
@@ -194,6 +195,7 @@ class Student():
             password=password,
             body=self.message
         )
+        os.remove('student.png')
     
     def send_ē_mail(self, from_, to, password):
         
@@ -232,10 +234,4 @@ class Student():
             password=password,
             body=self.message
         )
-
-
-with open('sample/1.jpg', 'rb') as a:
-    stud = Student('par.email', 'stud.email', ['Keerti', 'Sirisha'], 'Advik Bommu', 'male', 14.8, '~', ['programming', 'minecraft'], 'A+', 9849653186, a.read(), 1232132, 'Advik')
-
-stud.send_ē_mail(from_='admission.helper.app@gmail.com', to='advik.b@gmail.com', password='Dec@2612')
-    
+        os.remove('student.png')

@@ -1,12 +1,13 @@
-import smtplib, ssl
+import smtplib
+import ssl
 from email import encoders
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import os
 
-def send_mail(subject, sender_email, receiver_email, password, body, attachment=None):
 
+def send_mail(subject, sender_email, receiver_email, password, body, attachment=None):
 
     # Create a multipart message and set headers
     message = MIMEMultipart()
@@ -27,7 +28,7 @@ def send_mail(subject, sender_email, receiver_email, password, body, attachment=
         part = MIMEBase("application", "octet-stream")
         part.set_payload(attachment.read())
 
-    # Encode file in ASCII characters to send by email    
+    # Encode file in ASCII characters to send by email
     encoders.encode_base64(part)
 
     # Add header as key/value pair to attachment part
@@ -38,7 +39,7 @@ def send_mail(subject, sender_email, receiver_email, password, body, attachment=
 
     # Add attachment to message and convert message to string
     message.attach(part)
-        
+
     text = message.as_string()
 
     # Log in to server using secure context and send email
@@ -47,11 +48,12 @@ def send_mail(subject, sender_email, receiver_email, password, body, attachment=
         server.login(sender_email, password)
         server.sendmail(sender_email, receiver_email, text)
 
+
 class Student():
     """Student:
     ---
     Args:
-                    
+
         parent_email (str): email of the parent
         student_email (str): email of the student
         name (str): name
@@ -63,27 +65,28 @@ class Student():
         admission_number (int, optional): If any. Defaults to None.
         like_to_be_called_as (str, optional): Nick Name. Defaults to None.
         """
+
     def __init__(self,
-                 parent_email:str,
-                 student_email:str,
-                 parent_name:list,
-                 name:str,
-                 sex:str,
-                 age:float,
-                 address:str,
-                 hobbies:list,
-                 blood_group:str,
-                 parent_phone_number:int,
-                 passport_size_photo:bytes,
-                 admission_number:int=None,
-                 like_to_be_called_as:str=None,
-                 
+                 parent_email: str,
+                 student_email: str,
+                 parent_name: list,
+                 name: str,
+                 sex: str,
+                 age: float,
+                 address: str,
+                 hobbies: list,
+                 blood_group: str,
+                 parent_phone_number: int,
+                 passport_size_photo: bytes,
+                 admission_number: int = None,
+                 like_to_be_called_as: str = None,
+
                  ):
         """Student:
         ---
 
             Args:
-                            
+
                 parent_email (str): email of the parent
                 student_email (str): email of the student
                 name (str): name
@@ -111,25 +114,25 @@ class Student():
         self.parent_phone = parent_phone_number
         print(f'Student initialization completed.\nThe details are:\n\nname: {self.name}\nage:\
  {self.age}\nsex: {self.sex}\nnickname: {self.nickname}\nemail: {self.email}\n\nThere are some more details. use getinfo() method for the full list')
-        
+
     def getinfo(self) -> dict:
         """Use this function to get all the information returned in a dictionary
 
         Returns:
             dict: consisting of all the variables
         """
-        self.info_dict = {'name':self.name,
-                     'age':self.age,
-                     'sex':self.sex,
-                     'address':self.address,
-                     'email':self.email,
-                     'parent-email':self.contact_email,
-                     'nick':self.nickname,
-                     'admission-number':self.admission_number,
-                     'hobbies':self.hobbies,
-                     'photo':self.photo,
-                     'parents':self.parents
-                     }
+        self.info_dict = {'name': self.name,
+                          'age': self.age,
+                          'sex': self.sex,
+                          'address': self.address,
+                          'email': self.email,
+                          'parent-email': self.contact_email,
+                          'nick': self.nickname,
+                          'admission-number': self.admission_number,
+                          'hobbies': self.hobbies,
+                          'photo': self.photo,
+                          'parents': self.parents
+                          }
         return self.info_dict
 
     def send_accepted_mail(self, from_, to, password):
@@ -161,7 +164,7 @@ class Student():
         with open('student.png', 'wb+') as pic:
             pic.write(self.photo)
         send_mail(
-            
+
             subject=f'Admission for {self.name} accepted',
             attachment='student.png',
             receiver_email=to,
@@ -170,9 +173,9 @@ class Student():
             body=self.message
         )
         os.remove('student.png')
-        
+
     def send_reject_mail(self, from_, to, password):
-        
+
         self.school = 'KV AFS Begumpet'
         self.message = f"""\n
         Hello {str(self.parents).replace('[','').replace(']', '').replace("'", '')}
@@ -187,7 +190,7 @@ class Student():
         with open('student.png', 'wb+') as pic:
             pic.write(self.photo)
         send_mail(
-            
+
             subject=f'Admission for {self.name} rejected',
             attachment='student.png',
             receiver_email=to,
@@ -196,9 +199,9 @@ class Student():
             body=self.message
         )
         os.remove('student.png')
-    
+
     def send_ē_mail(self, from_, to, password):
-        
+
         self.school = 'KV AFS Begumpet'
         self.message = f"""\n
         Hello {str(self.parents).replace('[','').replace(']', '').replace("'", '')}
@@ -226,7 +229,7 @@ class Student():
         with open('student.png', 'wb+') as pic:
             pic.write(self.photo)
         send_mail(
-            
+
             subject=f'Admission for {self.name}',
             attachment='student.png',
             receiver_email=to,

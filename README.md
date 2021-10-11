@@ -12,5 +12,7 @@ I made this [app](./origin-app/Admission-helper-beta-v5.8.9.ipynb) when I was st
 
 ![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fadvik-b%2FAdmission-Helper%2Fbadge%3Fref%3DMaster&style=for-the-badge)
 
+[![Python application](https://github.com/Advik-B/Admission-helper/actions/workflows/python-app.yml/badge.svg?branch=Master)](https://github.com/Advik-B/Admission-helper/actions/workflows/python-app.yml)
+
 
 License: [GNU GENERAL PUBLIC LICENSE](https://github.com/Advik-B/Admission-helper/blob/main/LICENSE)

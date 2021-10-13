@@ -26,7 +26,7 @@ def callback():
     messagebox.showinfo('Info!', 'Admission succesfully added!')
 
 def parents():
-    messagebox.showinfo('Help', 'Parent name(s) seperated by commas\n\nexample:\n\n    parent-1, parent-2')
+    messagebox.showinfo('Help', 'Parent name(s) seperated by commas(spaces not allowed!)\n\nexample:\n\n    parent.A, parent.B')
 
 
 # Vars

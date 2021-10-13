@@ -1,0 +1,5 @@
+pip
+tk
+ttkthemes
+termcolor
+pillow

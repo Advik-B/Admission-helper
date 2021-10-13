@@ -12,7 +12,7 @@ I made this [app](./origin-app/Admission-helper-beta-v5.8.9.ipynb) when I was st
 
 
 
-[![Python application](https://github.com/Advik-B/Admission-helper/actions/workflows/python-app.yml/badge.svg?branch=Master)](https://github.com/Advik-B/Admission-helper/actions/workflows/python-app.yml)
+[![Python application](https://github.com/Advik-B/Admission-helper/actions/workflows/python-app.yml/badge.svg?branch=Master)](https://github.com/Advik-B/Admission-helper/actions/workflows/python-app.yml)[![Build Status](https://app.travis-ci.com/Advik-B/Admission-helper.svg?branch=Master)](https://app.travis-ci.com/Advik-B/Admission-helper)
 
 
 License: [GNU GENERAL PUBLIC LICENSE](https://github.com/Advik-B/Admission-helper/blob/main/LICENSE)

@@ -4,3 +4,4 @@ ttkthemes
 termcolor
 pillow
 pytest
+pyflakes

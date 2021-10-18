@@ -5,3 +5,4 @@ termcolor
 pillow
 pytest
 pyflakes
+pylint
